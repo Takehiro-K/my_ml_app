@@ -6,7 +6,7 @@ import os
 # モデルのロード（フルパスを取得）
 @st.cache_resource
 def load_model():
-    model_path = os.path.join(os.path.dirname(__file__), "catboost_model.joblib")
+    model_path = os.path.join(os.path.dirname(__file__), "catboost_model.pkl")
     return joblib.load(model_path)
 
 model = load_model()
