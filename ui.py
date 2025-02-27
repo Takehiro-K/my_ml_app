@@ -1,14 +1,13 @@
 import streamlit as st
 import joblib
 import numpy as np
+import os
 
-# Streamlitのタイトル
-st.title("CatBoost 二項分類モデル")
-
-# モデルをロード
-@st.cache_resource  # キャッシュしてロード時間を短縮
+# モデルのロード（フルパスを取得）
+@st.cache_resource
 def load_model():
-    return joblib.load("catboost_model.joblib")
+    model_path = os.path.join(os.path.dirname(__file__), "catboost_model.joblib")
+    return joblib.load(model_path)
 
 model = load_model()
 
